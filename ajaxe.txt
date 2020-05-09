@@ -1,0 +1,2 @@
+this is the txt file
+all the teaxt data will be fetched by the ajax(js+xml)

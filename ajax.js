@@ -48,16 +48,21 @@ function anyFunc() {
   //what do yo do when response is ready
   xhr.onload = function () {
     if (this.status === 200) {
-      let obj = JSON.parse(this.responseText);
-      console.log(obj);
+      let data = JSON.parse(this.responseText);
+      console.log(data);
       let list = document.getElementById('list');
       str = '';
-      for (data in obj) {
-        str += `<li>${data.employee_name} </li>`;
-      }
+
+      data.data.forEach((key, value) => {
+        str += `<li>${key.employee_name} </li>`;
+      });
       list.innerHTML = str;
-    } else {
-      console.log('some error has occured');
+      //   for (data in obj) {
+      //     str += `<li>${data.employee_name} </li>`;
+      //   }
+      //   list.innerHTML = str;
+      // } else {
+      //   console.log('some error has occured');
     }
   };
   //send the request
